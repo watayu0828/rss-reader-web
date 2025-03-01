@@ -12,7 +12,7 @@
       if (code == null) {
         window.location.replace("fallback.html");
       } else {
-        window.location.replace("myapp://oauth/callback?code=" + code);
+        window.location.replace(window.location.origin + window.location.pathname + "?code=" + code);
       }
     </script>
   </body>
