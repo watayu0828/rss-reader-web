@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -12,7 +12,12 @@
       if (code == null) {
         window.location.replace("fallback.html");
       } else {
-        window.location.replace(window.location.origin + window.location.pathname + "?code=" + code);
+        var isAndroid = /Android/i.test(navigator.userAgent);
+        if (isAndroid) {
+          window.location.replace("luno-reader://notion-auth?code=" + code);
+        } else {
+          window.location.replace(window.location.origin + window.location.pathname + "?code=" + code);
+        }
       }
     </script>
   </body>
